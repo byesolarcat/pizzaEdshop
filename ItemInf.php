@@ -8,6 +8,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style1.css">
+		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 		<?php echo '<title>ПиццаЕД | '.$item['Title'].'</title>';?>
 	</head>
 	<body>
@@ -42,7 +43,7 @@
 							Добавить в корзину
 						</a>
 						</form>
-						<a href="../src/removeitem.php?item='.$_GET['item'].'">
+						<a href="../src/	removeitem.php?item='.$_GET['item'].'">
 							<br><br>Удалить товар с сайта
 						</a>
 						</div>

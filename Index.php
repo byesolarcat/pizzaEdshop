@@ -1,5 +1,4 @@
-<?php 
-	require 'src/db.php';
+<?php require 'src/db.php';
 	session_start();
 ?>
 <html>
@@ -7,7 +6,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style1.css">
 		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
-		<title>ПиццаЕД | Доставка пиццы</title>
+		<title> ПиццаЕД | Доставка пиццы</title>
 	</head>
 	<body>
 		<div id = "wrap">
@@ -22,23 +21,12 @@
 				</ul>
 			</div>
 			<div id = "middle">
-				<div class="slayder">
-						<input type="radio" name="slides" id="slide1" checked>
-						<input type="radio" name="slides" id="slide2">
-						<input type="radio" name="slides" id="slide3">
-						<div class="slides">
-						<label for="slide1"></label>
-						<label for="slide2"></label>
-						<label for="slide3"></label>
-					</div>
-					<div class="foto">
-						<div class="photo">
-							<img src="/img/slider/slide1.jpg"/>
-							<img src="/img/slider/slide2.jpg"/>
-							<img src="/img/slider/slide3.jpg"/>
-						</div>
-					</div>
+				<div class = "slider">
+					<div class = "sld slide1"></div>
+					<div class = "sld slide2"></div>
+					<div class = "sld slide3"></div>
 				</div>
+			</div>
 			</div>
 			<?php
 				if(!isset($_COOKIE['username']))
@@ -55,7 +43,7 @@
 				else if ($_COOKIE['isadmin'] == 1)
 				{
 					echo '
-					<div id = "right">Добро пожаловать,<br>Администратор '.$_COOKIE['username'].', 
+					<div id = "right">Добро пожаловать,<br>Администратор '.$_COOKIE['username'].' 
 						<ul id="rightbar">
 							<li><a href="../additem.php">Добавить товар</a></li>
 							<li><a href="../cart.php">Корзина</a></li>
@@ -76,7 +64,7 @@
 			?>
 			<div id = "bottom">
 				<div class = "items-display">
-					<h3 style="text-align: center;">Пицца</h3>
+					<h3>Пицца</h3>
 					<?php
 						for($i = 0; $i <= 100; $i++)
 						{
@@ -98,7 +86,7 @@
 					?>
 				</div>
 				<div class = "items-display">
-					<h3 style="text-align: center;">Напитки</h3>
+					<h3>Напитки</h3>
 					<?php
 						for($i = 0; $i <= 100; $i++)
 						{
@@ -118,8 +106,9 @@
 						}
 					?>
 				</div>
+				<br>
 				<div class = "items-display">
-					<h3 style="text-align: center;">Акции</h3>
+					<h3>Акции</h3>
 					<?php
 						for($i = 0; $i <= 100; $i++)
 						{
