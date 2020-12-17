@@ -1,16 +1,19 @@
 <?php require 'src/db.php';
 	$category = $_GET['category'];
+	$items = mysqli_query($link,"SELECT * FROM `Goods` WHERE `Category`=$category");
+	$categoryName = mysqli_fetch_assoc(mysqli_query($link,"SELECT Title FROM `categories` WHERE `id`=$category"))['Title'];
 ?>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style1.css">
+		<?php echo '<title>ПиццаЕД | '.$categoryName.'</title>';?>
 	</head>
 	<body>
 		<div id = "wrap">
 	<?php require 'src/header.php'; ?>
 	<?php
-		$items = mysqli_query($link,"SELECT * FROM `Goods` WHERE `Category`=$category");
+		
 		for($i = 0; $i <= 100; $i++)
 		{
 			$item = mysqli_fetch_assoc($items);

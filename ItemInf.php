@@ -1,18 +1,19 @@
 <?php
-  require 'src/db.php';
-  $itemid=$_GET['item'];
+  	require 'src/db.php';
+  	$itemid=$_GET['item'];
+  	$item = mysqli_query($link,"SELECT * FROM `goods` WHERE `id`='$itemid'");
+	$item = mysqli_fetch_assoc($item);
 ?>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style1.css">
+		<?php echo '<title>ПиццаЕД | '.$item['Title'].'</title>';?>
 	</head>
 	<body>
 		<div id = "wrap">
 	<?php require 'src/header.php'; ?>
 			<?php
-			$item = mysqli_query($link,"SELECT * FROM `goods` WHERE `id`='$itemid'");
-			$item = mysqli_fetch_assoc($item);
 			echo '
 			<div class="selling-item">
 				<div class="message-preview-1">

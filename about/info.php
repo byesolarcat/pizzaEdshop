@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="..\style1.css">
+		<title>ПиццаЕД | О нас</title>
 	</head>
 	<body>
 	    <div id = "wrap">
@@ -15,10 +16,9 @@
                 И напитки!!!!
                 <br>
                 Ладно, на самом деле это не магазин пицц<br>
-                это сайт имитирующий интернет-магазин пицц<br><br>
+                это сайт имитирующий интернет-магазин пицц<br><br> 
                 Cайт написан <a href="aboutus.php">студентами группы 846</a><br>
-
 	        	</p><br>
             </div>
     </body>
-<html
+<html>

@@ -2,9 +2,17 @@
 	require 'src/db.php';
 	if(isset($_POST['email']))
   	{
+		$email = $_POST['email'];
+		$query = mysqli_query($link,"SELECT `email` AS `email` FROM `users` WHERE `email`='$email'");
+    	$email = mysqli_fetch_assoc($query)['email'];
 		if($_POST['psw'] != $_POST['psw-repeat'])
 		{
 			echo '<script> alert("Пароли не совпадают.");
+			reload();</script>';
+		}
+		else if(mb_strlen($email)>0)
+		{
+			echo '<script> alert("Пользователь с такой почтой уже зарегистрирован.");
 			reload();</script>';
 		}
 		else if(mb_strlen($_POST['psw']) < 5)
@@ -17,14 +25,7 @@
 			echo '<script> alert("E-Mail слишком короткий.");
 			reload();</script>';
 		}
-		$email = $_POST['email'];
-		$query = mysqli_query($link,"SELECT `email` AS `email` FROM `users` WHERE `email`='$email'");
-    	$email = mysqli_fetch_assoc($query)['email'];
-		if(mb_strlen($email)>0)
-		{
-			echo '<script> alert("Пользователь с такой почтой уже зарегистрирован.");
-			reload();</script>';
-		}
+		
 		else
 		{
 			$pass = trim($_POST['psw']);
@@ -42,6 +43,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style1.css">
+		<title> ПиццаЕД | Регистрация </title>
 	</head>
 	<body>
 		<div id = "wrap">
