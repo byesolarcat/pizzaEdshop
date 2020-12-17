@@ -17,7 +17,7 @@
 			echo '
 			<div class="selling-item">
 				<div class="message-preview-1">
-					<img class="message-img-1" src="img/items/'.$item['ImageSource'].'">
+					<img class="message-img-1" src="'.$item['ImageSource'].'">
 				</div>
 				<div class="message-info-1">
 					<h2 class="message-name-1"><a class="topic" href="#">'.$item['Title'].'</a></h2>
@@ -42,6 +42,9 @@
 							Добавить в корзину
 						</a>
 						</form>
+						<a href="../src/removeitem.php?item='.$_GET['item'].'">
+							<br><br>Удалить товар с сайта
+						</a>
 						</div>
 					</div>
 				</div>';

@@ -330,7 +330,7 @@ ul {
 	height: 150px;
 }
 
-input[type=text], input[type=password] 
+input[type=text], input[type=password], input[type=number], select
 {
   width: 100%;
   padding: 15px;
@@ -340,7 +340,7 @@ input[type=text], input[type=password]
   background: #f1f1f1;
 }
 
-input[type=text]:focus, input[type=password]:focus 
+input[type=text]:focus, input[type=password], input[type=number], select:focus z
 {
   background-color: #ddd;
   outline: none;

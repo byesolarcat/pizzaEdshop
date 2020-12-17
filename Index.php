@@ -1,4 +1,5 @@
-<?php require 'src/db.php';
+<?php 
+	require 'src/db.php';
 	session_start();
 ?>
 <html>
@@ -51,10 +52,21 @@
 						</ul>
 					</div>';
 				}
+				else if ($_COOKIE['isadmin'] == 1)
+				{
+					echo '
+					<div id = "right">Добро пожаловать,<br>Администратор '.$_COOKIE['username'].', 
+						<ul id="rightbar">
+							<li><a href="../additem.php">Добавить товар</a></li>
+							<li><a href="../cart.php">Корзина</a></li>
+							<li><a href="../src/logout.php">Выход</a></li>
+						</ul>
+					</div>';
+				}
 				else
 				{
 					echo '
-					<div id = "right">'.$_COOKIE['username'].', Добро пожаловать!
+					<div id = "right">Добро пожаловать, <br>'.$_COOKIE['username'].', 
 						<ul id="rightbar">
 							<li><a href="../cart.php">Корзина</a></li>
 							<li><a href="../src/logout.php">Выход</a></li>
@@ -74,7 +86,7 @@
 								echo '
 								<a class = "item-font" href="../ItemInf.php?item='.$item['id'].'">
 								<div class="card">
-									<img src="/img/items/'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
+									<img src="'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
 									<h1>'.$item['Title'].'</h1>
 									<p class="price">'.$item['price'].' рублей</p>
 									<p>'.$item['SmallDescription'].'</p>
@@ -96,7 +108,7 @@
 								echo '
 								<a class = "item-font" href="../ItemInf.php?item='.$item['id'].'">
 								<div class="card">
-									<img src="/img/items/'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
+									<img src="'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
 									<h1>'.$item['Title'].'</h1>
 									<p class="price">'.$item['price'].' рублей</p>
 									<p>'.$item['SmallDescription'].'</p>
@@ -117,7 +129,7 @@
 								echo '
 								<a class = "item-font" href="../ItemInf.php?item='.$item['id'].'">
 								<div class="card">
-									<img src="/img/items/'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
+									<img src="'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
 									<h1>'.$item['Title'].'</h1>
 									<p>'.$item['SmallDescription'].'</p>
 								</div>
