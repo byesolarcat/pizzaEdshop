@@ -8,7 +8,6 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="style1.css">
-		<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 		<?php echo '<title>ПиццаЕД | '.$item['Title'].'</title>';?>
 	</head>
 	<body>
@@ -18,7 +17,7 @@
 			echo '
 			<div class="selling-item">
 				<div class="message-preview-1">
-					<img class="message-img-1" src="'.$item['ImageSource'].'">
+					<img class="message-img-1" src="/img/items/'.$item['ImageSource'].'">
 				</div>
 				<div class="message-info-1">
 					<h2 class="message-name-1"><a class="topic" href="#">'.$item['Title'].'</a></h2>
@@ -43,8 +42,11 @@
 							Добавить в корзину
 						</a>
 						</form>
-						<a href="../src/	removeitem.php?item='.$_GET['item'].'">
+						<a href="../src/removeitem.php?item='.$_GET['item'].'">
 							<br><br>Удалить товар с сайта
+						</a>
+						<a href="../edititem.php?item='.$_GET['item'].'">
+							<br><br>Изменить товар
 						</a>
 						</div>
 					</div>

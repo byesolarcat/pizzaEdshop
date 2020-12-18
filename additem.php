@@ -1,18 +1,30 @@
 <?php
 	require 'src/db.php';
+	if($_COOKIE['isadmin'] == 0)
+        header("Location: /");
 	$categories = mysqli_query($link,"SELECT * FROM `categories`");
 	if(isset($_POST['title']))
 	{
-		print_r($_POST);
 		$title = trim($_POST['title']);
 		$description = trim($_POST['description']);
 		$smalldescription = trim($_POST['smalldescription']);
 		$structure = trim($_POST['structure']);
 		$category = intval($_POST['category']);
-		$image = trim($_POST['image']);
 		$price = floatval($_POST['price']);
+		$image  = $_FILES['image']['tmp_name'];
+		if(isset($image))
+		{
+			if (!move_uploaded_file($image, __DIR__ . '/img/items/' .$_FILES['image']['name']))
+			{
+    			die('При записи изображения на диск произошла ошибка.');
+        	}
+		}
+		$image = $_FILES['image']['name'];
 		mysqli_query($link, "INSERT INTO `goods`(Title, Description, SmallDescription, Structure, Category, ImageSource, price)
 								VALUES ('$title', '$description', '$smalldescription', '$structure' ,$category ,'$image', $price)");
+		$item = mysqli_query($link,"SELECT Id FROM `goods` WHERE `Title`='$title' AND `Description` = '$description'");
+		$itemid = mysqli_fetch_assoc($item)['Id'];
+		echo '<script>window.location.href = "/itemInf.php?item='.$itemid.'";</script>';
 	}
 ?>
 
@@ -26,7 +38,7 @@
 	<body>
 		<div id = "wrap">
 		<?php require 'src/header.php'; ?>
-		<form action="additem.php" method="post">
+		<form enctype="multipart/form-data" action="additem.php" method="POST">
 			<label for="title"><b>Название товара*:</b></label>
 			<input name="title" type = "text" placeholder="Введите название товара"required><span></span></p>
 			<label for="category"><b>Категория*:</b></label>
@@ -50,8 +62,8 @@
 			<input name="structure" type="text" placeholder="Введите состав товара (необязательно)"><span></span></p>
 			<label for="price"><b>Цена*: </b></label>
 			<input name="price" type="number" placeholder="Введите цену товара" required><span></span></p>
-			<label for="image"><b>Введите ссылку на изображение: </b></label>
-			<input name="image" type="text" placeholder="Введите ссылку" required><span></span></p>
+			<label for="image"><b>Добавить изображение: </b></label>
+			<input type="file" name="image">
 			<button type="submit" class="registerbtn">Добавить</button>
 		</form>
 	</body>

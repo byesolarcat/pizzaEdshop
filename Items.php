@@ -22,7 +22,7 @@
 				echo '
 				<a class = "item-font" href="../ItemInf.php?item='.$item['id'].'">
 					<div class="card">
-						<img src="'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
+						<img src="/img/items/'.$item['ImageSource'].'" alt="'.$item['SmallDescription'].'" style="width:100%">
 					<h1>'.$item['Title'].'</h1>';
 				if($category != 3)
 				{
