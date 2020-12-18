@@ -17,7 +17,6 @@
 		
 		if ($_FILES['image']['error'] == 0)
 		{
-			print_r($_FILES);
 			$image  = $_FILES['image']['tmp_name'];
 			if(isset($image))
 			{
