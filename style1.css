@@ -3,6 +3,7 @@ BODY
 	width: 100%;
 	margin: 0;
 	padding: 0;
+	font-family: 'Roboto', sans-serif;
 }
 #wrap
 {
@@ -22,7 +23,7 @@ BODY
 h2
 {
 	text-align: left;
-	font-family: Bangkok;
+	font-family: 'Pacifico', cursive;
 	font-size: 90px;
 	color: #FF6347;
 }
