@@ -37,19 +37,24 @@
 			}
 			if ($item['Category'] != 3)
 			{
+				echo '
+				</div>
+					<a href="../src/cart/addtocart.php?item='.$_GET['item'].'">
+					Добавить в корзину
+					</a>';
+				if ($_COOKIE['isadmin'] == 1)
+				{
+					echo '
+					<a href="../src/removeitem.php?item='.$_GET['item'].'">
+						<br><br>Удалить товар с сайта
+					</a>
+					<a href="../edititem.php?item='.$_GET['item'].'">
+						<br><br>Изменить товар
+					</a>
+					';
+				}
 				echo '</div>
-						<a href="../src/cart/addtocart.php?item='.$_GET['item'].'">
-							Добавить в корзину
-						</a>
-						</form>
-						<a href="../src/removeitem.php?item='.$_GET['item'].'">
-							<br><br>Удалить товар с сайта
-						</a>
-						<a href="../edititem.php?item='.$_GET['item'].'">
-							<br><br>Изменить товар
-						</a>
-						</div>
-					</div>
+				</div>
 				</div>';
 			}
 			?>
