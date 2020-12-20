@@ -65,7 +65,7 @@ session_start();
 		<div class="items-display">
 			<h3>Пицца</h3>
 			<?php
-			for ($i = 0; $i <= 100; $i++) {
+			for ($i = 0; $i < mysqli_num_rows($pizzas); $i++) {
 				$item = mysqli_fetch_assoc($pizzas);
 				if (isset($item)) {
 					echo '
@@ -84,7 +84,7 @@ session_start();
 		<div class="items-display">
 			<h3>Напитки</h3>
 			<?php
-			for ($i = 0; $i <= 100; $i++) {
+			for ($i = 0; $i < mysqli_num_rows($drinks); $i++) {
 				$item = mysqli_fetch_assoc($drinks);
 				if (isset($item)) {
 					echo '
@@ -104,7 +104,7 @@ session_start();
 		<div class="items-display">
 			<h3>Акции</h3>
 			<?php
-			for ($i = 0; $i <= 100; $i++) {
+			for ($i = 0; $i < mysqli_num_rows($sales); $i++) {
 				$item = mysqli_fetch_assoc($sales);
 				if (isset($item)) {
 					echo '

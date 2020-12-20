@@ -10,7 +10,7 @@ $categoryName = mysqli_fetch_assoc(mysqli_query($link, "SELECT Title FROM `categ
 	<link rel="stylesheet" type="text/css" href="style1.css">
 	<link rel="icon" href="../img/favicon.ico" type="image/x-icon">
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@500&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@500&display=swap" rel="stylesheet">
 	<?php echo '<title>ПиццаЕД | ' . $categoryName . '</title>'; ?>
 </head>
 
@@ -18,7 +18,7 @@ $categoryName = mysqli_fetch_assoc(mysqli_query($link, "SELECT Title FROM `categ
 	<div id="wrap">
 		<?php require 'src/header.php'; ?>
 		<?php
-		for ($i = 0; $i <= 100; $i++) {
+		for ($i = 0; $i < mysqli_num_rows($items); $i++) {
 			$item = mysqli_fetch_assoc($items);
 			if (isset($item)) {
 				echo '

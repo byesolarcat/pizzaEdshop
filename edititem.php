@@ -58,9 +58,11 @@ if (isset($_POST['title'])) {
 				<input name="title" type = "text" placeholder="Введите название товара" value = "' . $item['Title'] . '" required><span></span></p>
 				<label for="category"><b>Категория*:</b></label>
 				<select name="category">';
-		for ($i = 0; $i <= 6; $i++) {
+		for ($i = 0; $i < mysqli_num_rows($categories); $i++) {
 			$category = mysqli_fetch_assoc($categories);
-			if (isset($category)) {
+			if ($category['Id'] == $item['Category']) {
+				echo '<option value=' . $category['Id'] . 'selected>' . $category['Title'] . ' ';
+			} else {
 				echo '<option value=' . $category['Id'] . '>' . $category['Title'] . ' ';
 			}
 		}
